@@ -10,6 +10,15 @@ class IncomeService {
         $this->incomeRepository = $incomeRepository;
     }
 
+    public function index()
+    {
+        try {
+            return $this->incomeRepository->listIncomes();
+        } catch (\Throwable $th) {
+            throw new InvalidArgumentException('Unable to list incomes.');
+        }
+    }
+
     public function store($request)
     {
         try {

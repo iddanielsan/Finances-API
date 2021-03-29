@@ -20,7 +20,14 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            return response()->json($this->incomeService->index(), 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                "error" => true,
+                "message" => $th->getMessage()
+            ], 500);
+        }
     }
 
     /**

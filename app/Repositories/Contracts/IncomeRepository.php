@@ -13,4 +13,6 @@ interface IncomeRepository extends BaseRepository
     public function makeIncome($request);
 
     public function destroyIncome($id);
+
+    public function listIncomes();
 }

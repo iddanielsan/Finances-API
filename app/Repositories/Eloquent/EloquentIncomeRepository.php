@@ -27,4 +27,9 @@ class EloquentIncomeRepository extends EloquentBaseRepository implements IncomeR
             $income->delete();
         }
     }
+
+    public function listIncomes()
+    {
+        return $this->income->where('user_id', auth()->user()->id)->paginate(15);
+    }
 }

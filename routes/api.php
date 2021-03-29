@@ -28,6 +28,7 @@ Route::group([
 });
 
 Route::group(['middleware' => 'protectedByJWT'], function ($router) {
+    Route::get('income', [App\Http\Controllers\IncomeController::class, 'index']);
     Route::post('income', [App\Http\Controllers\IncomeController::class, 'store']);
     Route::delete('income/{id}', [App\Http\Controllers\IncomeController::class, 'destroy']);
 });
